@@ -60,7 +60,9 @@ Los campos `client`, `year`, `role` y `tools` son opcionales: si faltan, no se m
 ## Dónde está publicado
 
 Repositorio: https://github.com/linnea-svard/linnea-svard.github.io
-Sitio: **https://linnea-svard.github.io/**
+Sitio: **https://linneasvardmartin.com/** (también responde en https://linnea-svard.github.io/, que redirige al dominio)
+
+El dominio lo fija el archivo `CNAME` de la raíz del repo — **no borrarlo ni editarlo**.
 
 Es un *user site* de GitHub Pages: se publica solo desde la rama `main`, raíz, cada vez
 que se hace push. Tarda uno o dos minutos en actualizarse.
@@ -78,26 +80,12 @@ El repo tiene configurada la identidad de Linnéa (`user.name` / `user.email` lo
 repo) y la credencial de `linnea-svard` está guardada en el Credential Manager de Windows,
 así que no pide nada.
 
-## Dominio propio
+## Dominio (hecho)
 
-Un dominio tipo `linneasvard.com` o `linneasvardmartin.com` cuesta unos 10 €/año y es un
-salto de credibilidad real frente a una URL de github.io o wordpress.com.
+`linneasvardmartin.com` está en OVH, renovación automática. DNS:
 
-1. Comprar el dominio (Namecheap, Porkbun, Cloudflare Registrar…).
-2. En el DNS del dominio:
-   - `CNAME`  `www`  →  `linnea-svard.github.io`
-   - Cuatro registros `A` en el apex (`@`) apuntando a las IPs de GitHub Pages:
-     `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-     (comprobar que siguen vigentes en
-     https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site)
-3. En el repo, **Settings → Pages → Custom domain**: escribir el dominio (sin `www`) y,
-   cuando el DNS haya propagado, marcar *Enforce HTTPS*. GitHub crea el archivo `CNAME`
-   en la raíz del repo automáticamente — no borrarlo.
-4. Cambiar el `og:image` de `index.html` para que apunte al dominio nuevo.
-5. Actualizar el enlace «My Portfolio» de LinkedIn y dar de baja el WordPress.
+- `@`   A  → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+- `www` CNAME → `linnea-svard.github.io`
 
-## Idiomas
-
-El sitio detecta el idioma del navegador (sueco → SV, resto → EN) y recuerda la
-elección del botón EN/SV. Para añadir un tercer idioma habría que añadir su clave a
-`LANGS` en `site.js` y sus textos en `I18N` y en cada proyecto de `data.js`.
+En GitHub: **Settings → Pages → Custom domain** = `linneasvardmartin.com`, *Enforce HTTPS* activado.
+Si algún día se cambia de dominio: editar `CNAME`, los DNS, el `og:image` de `index.html` y el enlace de LinkedIn.
