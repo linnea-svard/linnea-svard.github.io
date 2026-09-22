@@ -25,8 +25,12 @@
   }
   function ui(key) { return (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key; }
 
-  function visibleProjects() { return PROJECTS.filter(p => !p.draft && p.images > 0); }
+  function visibleProjects() {
+    return PROJECTS.filter(p => !p.draft && (p.images > 0 || (p.videos && p.videos.length)));
+  }
   function imgPath(p, n) { return `img/work/${p.slug}/${String(n).padStart(2, "0")}.jpg`; }
+  /* Portada de la tarjeta: el campo `cover` si existe, si no la primera imagen. */
+  function coverPath(p) { return p.cover ? `img/work/${p.slug}/${p.cover}` : imgPath(p, 1); }
 
   function el(tag, attrs, children) {
     const n = document.createElement(tag);
@@ -69,7 +73,7 @@
       const grid = el("div", { class: "grid" }, items.map(p =>
         el("a", { class: "card", href: `project.html?p=${p.slug}` }, [
           el("figure", { class: "card-img" }, [
-            el("img", { src: imgPath(p, 1), alt: t(p.title), loading: "lazy", decoding: "async" })
+            el("img", { src: coverPath(p), alt: t(p.title), loading: "lazy", decoding: "async" })
           ]),
           el("div", { class: "card-text" }, [
             el("h3", { text: t(p.title) }),
@@ -148,7 +152,7 @@
         el("img", { src: imgPath(p, n), alt: `${t(p.title)} — ${n}`, loading: n === 1 ? "eager" : "lazy", decoding: "async" })
       ]));
     }
-    root.appendChild(el("div", { class: "p-images" }, imgs));
+    if (imgs.length) root.appendChild(el("div", { class: "p-images" }, imgs));
 
     const prev = list[(i - 1 + list.length) % list.length];
     const next = list[(i + 1) % list.length];

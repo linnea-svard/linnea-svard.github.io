@@ -37,6 +37,7 @@ const SITE = {
 const GROUPS = [
   { id: "brand",        label: { en: "Brand & identity",     sv: "Varumärke & identitet" } },
   { id: "photo",        label: { en: "Photography",          sv: "Fotografi" } },
+  { id: "motion",       label: { en: "Motion & film",        sv: "Rörlig grafik & film" } },
   { id: "3d",           label: { en: "3D & visualisation",   sv: "3D & visualisering" } },
   { id: "editorial",    label: { en: "Editorial & print",    sv: "Redaktionellt & tryck" } },
   { id: "illustration", label: { en: "Illustration",         sv: "Illustration" } },
@@ -101,6 +102,57 @@ const PROJECTS = [
       sv: "Produkt- och livsstilsfotografi för 226ERS, ett sportnutritionsvarumärke från Alicante, kring budskapet #ZeroWaste: gels och bars i användning, och en serie som ställer förpackningen mot marken den aldrig ska hamna på."
     },
     images: 3,
+  },
+  {
+    slug: "sturevodka",
+    group: "motion",
+    title: { en: "Sturevodka — Sureboat to England", sv: "Sturevodka — Sureboat to England" },
+    client: { en: "Sturevodka, via Love Spirit Brands", sv: "Sturevodka, via Love Spirit Brands" },
+    year: "2025",
+    role: { en: "Video, social content", sv: "Video, innehåll för sociala medier" },
+    tools: "Premiere Pro",
+    summary: {
+      en: "Sturevodka is a sister brand to Love Spirit under the same ownership. Two vertical reels around the branding of the company's boat ahead of its crossing to England: one following the hull out of the yard and onto the water, the other holding close on the branding details as they went on. Cut for Instagram, where the two run as a pair.",
+      sv: "Sturevodka är ett systervarumärke till Love Spirit med samma ägare. Två vertikala reels kring varumärkesdekoren på företagets båt inför överfarten till England: den ena följer skrovet ut från varvet och ut på vattnet, den andra ligger nära på dekordetaljerna medan de sätts på. Klippta för Instagram, där de två går som ett par."
+    },
+    videos: [
+      { embed: "https://www.youtube-nocookie.com/embed/2-PsA86kkfc", title: { en: "Sureboat to England", sv: "Sureboat to England" } },
+      { embed: "https://www.youtube-nocookie.com/embed/Yb8WSaHTCNY", title: { en: "Branding details", sv: "Dekordetaljer" } },
+    ],
+    cover: "cover.jpg",
+    images: 0,
+  },
+  {
+    slug: "vinjett-skav",
+    group: "motion",
+    title: { en: "SKAV — title sequence", sv: "SKAV — vinjett" },
+    client: { en: "University project · Umeå universitet", sv: "Universitetsprojekt · Umeå universitet" },
+    role: { en: "Motion graphics, title design", sv: "Rörlig grafik, vinjettdesign" },
+    summary: {
+      en: "A university brief: design a new title sequence for <em>SKAV</em>, a programme on Swedish public broadcaster SVT. Flat pop-art shapes, halftone dots and hard diagonal cuts, timed so the whole thing reads as one moving graphic system rather than a run of separate frames.",
+      sv: "En universitetsuppgift: formge en ny vinjett till <em>SKAV</em>, ett program på SVT. Platta popkonstformer, rastrerade punkter och hårda diagonala snitt, timade så att helheten läses som ett sammanhängande rörligt grafiskt system snarare än en rad separata bildrutor."
+    },
+    videos: [
+      { embed: "https://www.youtube-nocookie.com/embed/JKkvR_g4brg", ratio: "16/9" },
+    ],
+    cover: "cover.jpg",
+    images: 0,
+  },
+  {
+    slug: "never-ending-projects",
+    group: "motion",
+    title: { en: "The Never Ending Projects", sv: "The Never Ending Projects" },
+    client: { en: "University project · Umeå universitet", sv: "Universitetsprojekt · Umeå universitet" },
+    role: { en: "Producer, writer, camera, edit", sv: "Producent, manus, foto, klippning" },
+    summary: {
+      en: "A short documentary I produced, wrote and shot at university, taken on to learn the whole production chain end to end rather than one part of it: finding the subject, structuring the story, running the interviews and cutting them together.",
+      sv: "En kort dokumentär som jag producerade, skrev och filmade under utbildningen, med syftet att lära mig hela produktionskedjan från början till slut snarare än en enskild del: hitta ämnet, bygga berättelsen, genomföra intervjuerna och klippa ihop dem."
+    },
+    videos: [
+      { embed: "https://www.youtube-nocookie.com/embed/eWE3FmWm5bI", ratio: "16/9" },
+    ],
+    cover: "cover.jpg",
+    images: 0,
   },
   {
     slug: "grafyco",

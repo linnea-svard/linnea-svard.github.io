@@ -38,6 +38,11 @@ y abrir http://localhost:8000
 Los campos `client`, `year`, `role` y `tools` son opcionales: si faltan, no se muestran.
 `draft: true` oculta un proyecto sin borrarlo.
 
+Un proyecto puede ser solo de vídeo (`images: 0`). En ese caso necesita un campo
+`cover: "cover.jpg"` con la imagen que se ve en la tarjeta de la portada; ponla en
+`img/work/<slug>/cover.jpg` recortada a 4:5. `cover` también sirve para cualquier
+proyecto cuya mejor portada no sea su primera imagen.
+
 ## Añadir vídeos (reels)
 
 Un proyecto puede llevar un campo `videos` con una lista de vídeos; se muestran en la
