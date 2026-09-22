@@ -121,8 +121,10 @@
 
     /* vídeos (reels): .mp4 en la carpeta del proyecto, o embed de YouTube/Vimeo */
     if (p.videos && p.videos.length) {
-      root.appendChild(el("div", { class: "p-videos" }, p.videos.map(v => {
+      const wide = p.videos.some(v => v.ratio && v.ratio !== "9/16");
+      root.appendChild(el("div", { class: wide ? "p-videos wide" : "p-videos" }, p.videos.map(v => {
         const fig = el("figure", { class: "p-video" });
+        if (v.ratio) fig.style.setProperty("--ratio", v.ratio);
         if (v.embed) {
           fig.appendChild(el("iframe", {
             src: v.embed, loading: "lazy", allowfullscreen: "",

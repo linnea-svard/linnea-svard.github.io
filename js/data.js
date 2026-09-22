@@ -18,8 +18,10 @@
      { file: "reel-01.mp4", poster: "reel-01.jpg", title: { en: "…", sv: "…" } }
        → archivo .mp4 en la misma carpeta img/work/<slug>/ (poster y
          title opcionales). Comprimir antes de subir; ver README.
-     { embed: "https://www.youtube.com/embed/VIDEO_ID", title: { … } }
+     { embed: "https://www.youtube-nocookie.com/embed/VIDEO_ID", title: { … } }
        → vídeo alojado en YouTube o Vimeo, sin subir nada al repo.
+   Los vídeos son verticales (9:16) por defecto. Para uno horizontal
+   añade  ratio: "16/9"  a esa entrada.
    ============================================================ */
 
 const SITE = {
@@ -74,13 +76,18 @@ const PROJECTS = [
     title: { en: "Love Spirit — Benidorm Fest & Autobello", sv: "Love Spirit — Benidorm Fest & Autobello" },
     client: { en: "Love Spirit Brands", sv: "Love Spirit Brands" },
     year: "2025",
-    role: { en: "Event & product photography, social content", sv: "Event- och produktfoto, innehåll för sociala medier" },
-    tools: { en: "Photography, Photoshop", sv: "Fotografi, Photoshop" },
+    tools: { en: "Photography, Photoshop, Premiere Pro", sv: "Fotografi, Photoshop, Premiere Pro" },
+    role: { en: "Event & product photography, video, social content", sv: "Event- och produktfoto, video, innehåll för sociala medier" },
     summary: {
-      en: "Event and product photography for Love Spirit, a premium spirits brand, shot during my time on its marketing team. Coverage of Benidorm Fest 2025 and Autobello Alicante — stage, guests and product — edited for the brand's social channels, alongside bottle and cocktail shots for the feed.",
-      sv: "Event- och produktfotografi för Love Spirit, ett premiumvarumärke inom spritdrycker, taget under min tid i marknadsteamet. Bevakning av Benidorm Fest 2025 och Autobello Alicante — scen, gäster och produkt — redigerat för varumärkets sociala kanaler, tillsammans med flask- och cocktailbilder för flödet."
+      en: "Event and product photography for Love Spirit, a premium spirits brand, shot during my time on its marketing team. Coverage of Benidorm Fest 2025 and Autobello Alicante — stage, guests, cars and product — edited for the brand's social channels, alongside bottle and cocktail shots for the feed, and a set of vertical reels cut for Instagram.",
+      sv: "Event- och produktfotografi för Love Spirit, ett premiumvarumärke inom spritdrycker, taget under min tid i marknadsteamet. Bevakning av Benidorm Fest 2025 och Autobello Alicante — scen, gäster, bilar och produkt — redigerat för varumärkets sociala kanaler, tillsammans med flask- och cocktailbilder för flödet, och en serie vertikala reels klippta för Instagram."
     },
-    images: 7,
+    videos: [
+      { embed: "https://www.youtube-nocookie.com/embed/aoTgXAQKfSg", title: { en: "Bar and product reel", sv: "Reel: bar och produkt" } },
+      { embed: "https://www.youtube-nocookie.com/embed/uN5YqL4gEWU", title: { en: "Cocktail-making reel", sv: "Reel: cocktailmixning" } },
+      { embed: "https://www.youtube-nocookie.com/embed/pqmrQcviA1A", title: { en: "Autobello Alicante event reel", sv: "Reel: Autobello Alicante" } },
+    ],
+    images: 13,
   },
   {
     slug: "226ers",
