@@ -73,7 +73,10 @@
           ]),
           el("div", { class: "card-text" }, [
             el("h3", { text: t(p.title) }),
-            el("p", { class: "meta", text: [t(p.client), p.year].filter(Boolean).join(" · ") })
+            el("p", { class: "meta", text: [
+              t(p.client), p.year,
+              p.videos && p.videos.length ? `${p.videos.length} ${p.videos.length === 1 ? "reel" : "reels"}` : ""
+            ].filter(Boolean).join(" · ") })
           ])
         ])
       ));
@@ -115,6 +118,27 @@
       el("dl", { class: "p-meta" }, meta.flatMap(r => [el("dt", { text: ui(r[0]) }), el("dd", { text: r[1] })])),
       el("div", { class: "p-summary", html: t(p.summary) }),
     ]));
+
+    /* vídeos (reels): .mp4 en la carpeta del proyecto, o embed de YouTube/Vimeo */
+    if (p.videos && p.videos.length) {
+      root.appendChild(el("div", { class: "p-videos" }, p.videos.map(v => {
+        const fig = el("figure", { class: "p-video" });
+        if (v.embed) {
+          fig.appendChild(el("iframe", {
+            src: v.embed, loading: "lazy", allowfullscreen: "",
+            allow: "autoplay; fullscreen; picture-in-picture",
+            title: t(v.title) || t(p.title)
+          }));
+        } else {
+          const vid = el("video", { controls: "", playsinline: "", preload: "metadata" });
+          if (v.poster) vid.setAttribute("poster", `img/work/${p.slug}/${v.poster}`);
+          vid.appendChild(el("source", { src: `img/work/${p.slug}/${v.file}`, type: "video/mp4" }));
+          fig.appendChild(vid);
+        }
+        if (v.title) fig.appendChild(el("figcaption", { class: "meta", text: t(v.title) }));
+        return fig;
+      })));
+    }
 
     const imgs = [];
     for (let n = 1; n <= p.images; n++) {

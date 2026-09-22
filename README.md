@@ -38,6 +38,30 @@ y abrir http://localhost:8000
 Los campos `client`, `year`, `role` y `tools` son opcionales: si faltan, no se muestran.
 `draft: true` oculta un proyecto sin borrarlo.
 
+## Añadir vídeos (reels)
+
+Un proyecto puede llevar un campo `videos` con una lista de vídeos; se muestran en la
+ficha antes de las imágenes, en vertical 9:16. Dos opciones:
+
+**A. Archivo `.mp4` en el repo** — `{ file: "reel-01.mp4", poster: "reel-01.jpg" }`, en la
+misma carpeta `img/work/<slug>/`. Comprimir antes de subir (un reel de Instagram original
+pesa 20–60 MB; así queda en 4–8 MB):
+
+```
+ffmpeg -i original.mp4 -vf "scale=-2:1280" -c:v libx264 -crf 24 -preset slow -movflags +faststart -c:a aac -b:a 128k reel-01.mp4
+ffmpeg -ss 1 -i reel-01.mp4 -frames:v 1 -q:v 3 reel-01.jpg
+```
+
+Límite razonable: 5–6 reels por proyecto. GitHub rechaza archivos de más de 100 MB y el
+repo entero conviene mantenerlo por debajo de ~200 MB.
+
+**B. Embed de YouTube / Vimeo** — `{ embed: "https://www.youtube.com/embed/VIDEO_ID" }`.
+Sin subir nada; subir el reel a YouTube como *no listado* y copiar el id. Recomendado si
+son muchos o pesados. Los embeds de Instagram no se usan: pesan, a veces exigen login y
+fallan en algunos navegadores.
+
+En ambos casos `title: { en, sv }` es opcional y sale como pie del vídeo.
+
 ## Pendiente de completar
 
 - [ ] **Virtual Norte**: está en `data.js` como `draft: true` sin imágenes. Añadir la

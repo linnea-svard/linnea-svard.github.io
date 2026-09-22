@@ -145,6 +145,16 @@ footer {
 .p-meta dd { margin: 0; color: var(--ink); font-family: var(--sans); font-size: 14px; font-variant-numeric: normal; letter-spacing: 0; }
 .p-summary { font-size: 17px; line-height: 1.6; }
 .p-summary em { font-style: italic; }
+.p-videos {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  gap: 20px; padding-block: 36px 4px; max-width: 880px;
+}
+.p-video { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.p-video video, .p-video iframe {
+  width: 100%; aspect-ratio: 9 / 16; display: block; border: 0; border-radius: 2px;
+  background: var(--img-bg); object-fit: cover;
+}
+.p-video .meta { color: var(--muted); }
 .p-images { display: flex; flex-direction: column; gap: 20px; padding-block: 36px 20px; }
 .p-fig { margin: 0; background: var(--img-bg); border-radius: 2px; overflow: hidden; }
 .p-fig img { width: 100%; height: auto; }

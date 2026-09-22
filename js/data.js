@@ -12,6 +12,14 @@
    Los campos client / year / role / tools son opcionales: si un
    campo no está, simplemente no se muestra.
    Pon  draft: true  para ocultar un proyecto sin borrarlo.
+
+   Vídeos (reels): campo opcional  videos: [ ... ]  con una entrada
+   por vídeo, que se muestran antes de las imágenes. Dos formas:
+     { file: "reel-01.mp4", poster: "reel-01.jpg", title: { en: "…", sv: "…" } }
+       → archivo .mp4 en la misma carpeta img/work/<slug>/ (poster y
+         title opcionales). Comprimir antes de subir; ver README.
+     { embed: "https://www.youtube.com/embed/VIDEO_ID", title: { … } }
+       → vídeo alojado en YouTube o Vimeo, sin subir nada al repo.
    ============================================================ */
 
 const SITE = {
